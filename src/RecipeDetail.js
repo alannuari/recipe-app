@@ -55,7 +55,7 @@ const RecipeDetail = () => {
                             <div>
                                 {recipes.ingredients[0].items.map((item) => {
                                     return (
-                                        <li key={item.item}>
+                                        <li key={item.item} className="px-2">
                                             <span>{item.item} | </span>
                                             <span className="text-color-primary">{item.qty}</span>
                                         </li>
@@ -67,7 +67,7 @@ const RecipeDetail = () => {
                             <h1 className="font-bold text-xl mb-1">Langkah - langkah</h1>
                             {recipes.steps.map((step) => {
                                 return (
-                                    <div key={step.num}>
+                                    <div key={step.num} className="px-2 mb-1">
                                         <span>{step.num}. </span>
                                         <span>{step.step}</span>
                                     </div>
