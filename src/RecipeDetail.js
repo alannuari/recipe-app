@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
+import ClockIcon from './clock.svg';
 
 const RecipeDetail = () => {
     const URL = 'https://api-food-recipe.herokuapp.com';
@@ -47,8 +48,13 @@ const RecipeDetail = () => {
                         </div>
                         <div className="py-3">
                             <h1 className="font-bold text-2xl">{recipes.recipeTitle}</h1>
-                            <span className="text-xs sm:text-sm px-2 py-0.5 top-1 left-1 rounded-full bg-color-secondary text-color-secondary mr-1">{recipes.recipeInfo.difficulty}</span>
-                            <span className="text-xs sm:text-sm px-2 py-0.5 top-1 left-1 rounded-full bg-color-secondary text-color-secondary mr-1">{recipes.recipeInfo.time}</span>
+                            <div className="flex items-center">
+                                <p>Durasi : </p>
+                                <div className="text-sm px-2 py-1 ml-1 top-1 left-1 rounded-full bg-color-secondary text-color-secondary mr-1 inline-flex">
+                                    <img src={ClockIcon} alt="clock" width={16} className="mr-1" />
+                                    <span>{recipes.recipeInfo.time}</span>
+                                </div>
+                            </div>
                         </div>
                         <div className="py-3">
                             <h1 className="font-bold text-xl mb-1">{recipes.ingredients[0].title}</h1>
