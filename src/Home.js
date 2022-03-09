@@ -72,7 +72,7 @@ const Home = () => {
 
     return (
         <div className="min-h-screen bg-slate-200 relative">
-            <div className="px-2 pt-8 pb-10 flex items-center flex-col">
+            <div className="px-2 pt-8 pb-12 flex items-center flex-col">
                 <h1 className="text-3xl font-bold pb-6">Recipe App</h1>
                 <div className="flex max-w-md w-full bg-color-primary px-4 p-1 sm:py-2 rounded-full">
                     <input
