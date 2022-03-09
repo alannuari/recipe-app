@@ -33,13 +33,13 @@ const RecipeDetail = () => {
             });
     };
     return (
-        <div className="bg-slate-200 min-h-screen py-8">
+        <div className="bg-slate-200 min-h-screen py-8 px-2">
             <div className="mx-auto w-full max-w-2xl">
                 {isPending ? (
                     <Loading />
                 ) : (
                     <div className="relative">
-                        <Link to="/" className="px-3 py-2 bg-white hover:bg-slate-100 absolute top-0 left-0 rounded-lg text-color-primary">
+                        <Link to="/" className="px-3 py-2 bg-white hover:bg-slate-100 absolute top-2 left-0 rounded-lg text-color-primary">
                             Kembali
                         </Link>
                         <div className="w-full flex justify-center">
@@ -64,7 +64,7 @@ const RecipeDetail = () => {
                             </div>
                         </div>
                         <div className="py-3">
-                            <h1 className="font-bold text-xl mb-1">Langkah-langkah</h1>
+                            <h1 className="font-bold text-xl mb-1">Langkah - langkah</h1>
                             {recipes.steps.map((step) => {
                                 return (
                                     <div key={step.num}>
