@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ClockIcon from './clock.svg';
+import ClockIcon from '../assets/clock.svg';
+import { selectedRecipe } from '../redux/recipe/recipeActions';
 
-const Recipe = ({ recipe: { id, title, time, difficulty, images } }) => {
+const Recipe = ({ recipe: { id, title, time, images }, selectedRecipe }) => {
     return (
         <div className="bg-white m-3 rounded-lg p-2">
-            <Link to={`/recipe/${id}`} state={{ image: images[0] }}>
+            <Link to={`/recipe/${id}`} state={{ image: images[0] }} onClick={() => selectedRecipe()}>
                 <div className="relative">
                     <div className="absolute text-sm px-2 py-1 top-1 left-1 rounded-full bg-color-secondary text-color-secondary inline-flex">
                         <img src={ClockIcon} alt="clock" width={16} className="mr-1" />
@@ -21,4 +23,10 @@ const Recipe = ({ recipe: { id, title, time, difficulty, images } }) => {
     );
 };
 
-export default Recipe;
+const mapToDispatchProps = (dispatch) => {
+    return {
+        selectedRecipe: () => dispatch(selectedRecipe()),
+    };
+};
+
+export default connect(null, mapToDispatchProps)(Recipe);
