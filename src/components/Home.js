@@ -17,7 +17,7 @@ const Home = ({ recipeData, fetchRecipes, fetchSearchRecipes, setLoading, search
             setLoading();
             fetchRecipes();
         } else {
-            setTextRecipe(`Hasil Pencarian Resep: '${searchQuery}'`);
+            setTextRecipe(`Hasil Pencarian Resep : '${searchQuery}'`);
             searchRecipe();
             fetchSearchRecipes(searchQuery);
         }
