@@ -22,7 +22,7 @@ const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRe
                     <Loading />
                 ) : (
                     <div className="relative">
-                        <Link to="/" onClick={() => backHome()} className="px-3 py-2 bg-white hover:bg-slate-100 sticky top-2 left-0 rounded-lg text-color-primary">
+                        <Link to="/" onClick={() => backHome()} className="px-3 py-2 bg-white hover:bg-slate-100 sticky top-2 left-0 rounded-lg text-color-secondary">
                             Kembali
                         </Link>
                         <div className="w-full flex justify-center">
