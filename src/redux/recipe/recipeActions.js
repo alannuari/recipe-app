@@ -42,7 +42,7 @@ export const searchRecipe = () => {
 export const fetchRecipes = () => {
     return (dispatch) => {
         axios
-            .get('https://api-food-recipe.herokuapp.com/recipe')
+            .get('https://api-food-recipev2.herokuapp.com/recipe')
             .then((res) => {
                 const recipes = res.data;
                 dispatch(fetchRecipeSuccess(recipes));
@@ -57,7 +57,7 @@ export const fetchRecipes = () => {
 export const fetchSearchRecipes = (query) => {
     return (dispatch) => {
         axios
-            .get(`https://api-food-recipe.herokuapp.com/search?q=${query}`)
+            .get(`https://api-food-recipev2.herokuapp.com/search?q=${query}`)
             .then((res) => {
                 const recipes = res.data;
                 dispatch(fetchRecipeSuccess(recipes));
@@ -72,7 +72,7 @@ export const fetchSearchRecipes = (query) => {
 export const fetchRecipeDetail = (id) => {
     return (dispatch) => {
         axios
-            .get(`https://api-food-recipe.herokuapp.com/recipe/${id}`)
+            .get(`https://api-food-recipev2.herokuapp.com/recipe/${id}`)
             .then((res) => {
                 const recipe = res.data;
                 dispatch(fetchRecipeSuccess(recipe.data));
