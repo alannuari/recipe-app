@@ -37,7 +37,9 @@ const Home = ({ recipeData, fetchRecipes, fetchSearchRecipes, setLoading, search
                 {recipeData.loading ? (
                     <Loading />
                 ) : recipeData.error ? (
-                    <div className="text-slate-400">{recipeData.error}</div>
+                    <div className="text-slate-400 py-3">{recipeData.error}</div>
+                ) : recipeData.recipes.data.length === 0 ? (
+                    <div className="text-slate-400 py-3">Maaf, tidak ada data yang bisa ditampilkan!</div>
                 ) : (
                     <div className="flex flex-wrap justify-center items-center sm:pt-6 pt-3 pb-6 ">
                         {recipeData.recipes.data.map((recipe) => (
