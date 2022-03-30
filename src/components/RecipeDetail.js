@@ -42,12 +42,16 @@ const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRe
                         {recipe.ingredients.map((ingredient) => {
                             return (
                                 <div key={ingredient.title} className="py-3">
-                                    <h1 className="font-bold text-xl mb-1">{ingredient.title}</h1>
+                                    <h1 className="font-bold text-xl mb-1 capitalize">{ingredient.title}</h1>
                                     <div>
+                                        {ingredient.items.map((item, index) => {
+                                            item.index = index;
+                                            return null;
+                                        })}
                                         {ingredient.items.map((item) => {
                                             return (
-                                                <li className="px-2">
-                                                    <span>{item.item} | </span>
+                                                <li key={item.index} className="px-2">
+                                                    <span className="capitalize">{item.item} | </span>
                                                     <span className="text-color-primary">{item.qty}</span>
                                                 </li>
                                             );
@@ -56,21 +60,8 @@ const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRe
                                 </div>
                             );
                         })}
-
-                        {/* <h1 className="font-bold text-xl mb-1">{recipe.ingredients[1].title}</h1>
-                            <div>
-                                {recipe.ingredients[1].items.map((item) => {
-                                    return (
-                                        <li key={item.item} className="px-2">
-                                            <span>{item.item} | </span>
-                                            <span className="text-color-primary">{item.qty}</span>
-                                        </li>
-                                    );
-                                })}
-                            </div> */}
-
                         <div className="py-3">
-                            <h1 className="font-bold text-xl mb-1">Langkah - langkah</h1>
+                            <h1 className="font-bold text-xl mb-1">Langkah - Langkah</h1>
                             {recipe.steps.map((step) => {
                                 return (
                                     <div key={step.num} className="px-2 mb-1">
