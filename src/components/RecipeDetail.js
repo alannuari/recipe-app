@@ -16,7 +16,7 @@ const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRe
     }, [id, fetchRecipeDetail]);
 
     return (
-        <div className="bg-slate-200 min-h-screen py-8 px-2">
+        <div className="bg-slate-100 min-h-screen py-8 px-2">
             <div className="mx-auto w-full max-w-2xl">
                 {loading ? (
                     <Loading />
@@ -26,7 +26,7 @@ const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRe
                             Kembali
                         </Link>
                         <div className="w-full flex justify-center">
-                            <img src={image} alt={id} className="rounded-lg" />
+                            <img src={image} alt={id} className="rounded-lg shadow" />
                         </div>
                         <div className="py-3">
                             <h1 className="font-bold text-2xl">{recipe.recipeTitle}</h1>
