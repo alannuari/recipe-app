@@ -24,8 +24,8 @@ const Home = ({ recipeData, fetchRecipes, fetchSearchRecipes, setLoading, search
     }, [searchQuery, fetchRecipes, fetchSearchRecipes, setLoading, searchRecipe]);
 
     return (
-        <div className="min-h-screen bg-slate-200 relative">
-            <div className="px-2 sm:pt-8 pt-4 pb-12 flex items-center flex-col">
+        <div className="bg-slate-100 relative">
+            <div className="min-h-screen px-2 sm:pt-8 pt-4 pb-12 flex items-center flex-col">
                 <h1 className="text-3xl font-bold sm:mb-6 mb-3">Recipe App</h1>
                 <div className="flex max-w-md w-full bg-color-primary px-4 py-1 sm:py-2 rounded-full mb-6">
                     <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Cari Resep Masakan" className="flex-1 bg-transparent sm:px-4 outline-none mr-4 text-white font-700" />
