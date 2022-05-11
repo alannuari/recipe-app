@@ -44,13 +44,9 @@ const RecipeDetail = ({ recipeData: { recipe, loading, error }, fetchRecipeDetai
                                 <div key={ingredient.title} className="py-3">
                                     <h1 className="font-bold text-xl mb-1 capitalize">{ingredient.title}</h1>
                                     <div>
-                                        {ingredient.items.map((item, index) => {
-                                            item.index = index;
-                                            return null;
-                                        })}
-                                        {ingredient.items.map((item) => {
+                                        {ingredient.items.map((item, idx) => {
                                             return (
-                                                <li key={item.index} className="px-2">
+                                                <li key={idx} className="px-2">
                                                     <span className="capitalize">{item.item} | </span>
                                                     <span className="text-color-primary">{item.qty}</span>
                                                 </li>
