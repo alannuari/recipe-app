@@ -1,15 +1,9 @@
 import axios from 'axios';
-import { FETCH_RECIPES_FAILURE, SET_LOADING, FETCH_RECIPES_SUCCESS, SELECTED_RECIPE, SEARCH_RECIPE, BACK_HOME } from './recipeTypes';
+import { FETCH_FAILURE, SET_LOADING, FETCH_RECIPES_SUCCESS, FETCH_RECIPE_SUCCESS, SELECTED_RECIPE, SEARCH_RECIPE } from './recipeTypes';
 
 export const setLoading = () => {
     return {
         type: SET_LOADING,
-    };
-};
-
-export const backHome = () => {
-    return {
-        type: BACK_HOME,
     };
 };
 
@@ -19,16 +13,23 @@ export const selectedRecipe = () => {
     };
 };
 
-export const fetchRecipeSuccess = (recipes) => {
+export const fetchRecipesSuccess = (recipes) => {
     return {
         type: FETCH_RECIPES_SUCCESS,
         payload: recipes,
     };
 };
 
-export const fetchRecipeFailure = (error) => {
+export const fetchRecipeSuccess = (recipe) => {
     return {
-        type: FETCH_RECIPES_FAILURE,
+        type: FETCH_RECIPE_SUCCESS,
+        payload: recipe,
+    };
+};
+
+export const fetchFailure = (error) => {
+    return {
+        type: FETCH_FAILURE,
         payload: error,
     };
 };
@@ -45,11 +46,11 @@ export const fetchRecipes = () => {
             .get('https://api-food-recipev2.herokuapp.com/recipe')
             .then((res) => {
                 const recipes = res.data;
-                dispatch(fetchRecipeSuccess(recipes));
+                dispatch(fetchRecipesSuccess(recipes));
             })
             .catch((err) => {
                 const error = err.message;
-                dispatch(fetchRecipeFailure(error));
+                dispatch(fetchFailure(error));
             });
     };
 };
@@ -60,11 +61,11 @@ export const fetchSearchRecipes = (query) => {
             .get(`https://api-food-recipev2.herokuapp.com/search?q=${query}`)
             .then((res) => {
                 const recipes = res.data;
-                dispatch(fetchRecipeSuccess(recipes));
+                dispatch(fetchRecipesSuccess(recipes));
             })
             .catch((err) => {
                 const error = err.message;
-                dispatch(fetchRecipeFailure(error));
+                dispatch(fetchFailure(error));
             });
     };
 };
@@ -79,7 +80,7 @@ export const fetchRecipeDetail = (id) => {
             })
             .catch((err) => {
                 const error = err.message;
-                dispatch(fetchRecipeFailure(error));
+                dispatch(fetchFailure(error));
             });
     };
 };

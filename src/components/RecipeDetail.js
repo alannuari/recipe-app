@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import ClockIcon from '../assets/clock.svg';
 import { connect } from 'react-redux';
-import { backHome, fetchRecipeDetail } from '../redux/recipe/recipeActions';
+import { fetchRecipeDetail } from '../redux/recipe/recipeActions';
 
-const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRecipeDetail, backHome }) => {
+const RecipeDetail = ({ recipeData: { recipe, loading, error }, fetchRecipeDetail }) => {
     const { id } = useParams();
     const location = useLocation();
     const { image } = location.state;
@@ -22,7 +22,7 @@ const RecipeDetail = ({ recipeData: { recipes: recipe, loading, error }, fetchRe
                     <Loading />
                 ) : (
                     <div className="relative">
-                        <Link to="/" onClick={() => backHome()} className="px-3 py-2 bg-white hover:bg-slate-100 sticky top-2 left-0 rounded-lg text-color-secondary">
+                        <Link to="/" className="px-3 py-2 bg-white hover:bg-slate-100 sticky top-2 left-0 rounded-lg text-color-secondary">
                             Kembali
                         </Link>
                         <div className="w-full flex justify-center">
@@ -87,8 +87,7 @@ const mapToStateProps = (state) => {
 
 const mapToDispatchProps = (dispatch) => {
     return {
-        fetchRecipeDetail: (id) => dispatch(fetchRecipeDetail(id)),
-        backHome: () => dispatch(backHome()),
+        fetchRecipeDetail: (id) => dispatch(fetchRecipeDetail(id))
     };
 };
 
