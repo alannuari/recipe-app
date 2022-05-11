@@ -34,15 +34,16 @@ const Home = ({ recipeData, fetchRecipes, fetchSearchRecipes, setLoading, search
                 <div className="flex sm:text-xl text-lg text-left px-4 text-gray-600">
                     <h1 className="max-w-4xl">{textRecipe}</h1>
                 </div>
+                {console.log(recipeData.recipes)}
                 {recipeData.loading ? (
                     <Loading />
                 ) : recipeData.error ? (
                     <div className="text-slate-400 py-3">{recipeData.error}</div>
-                ) : recipeData.recipes.data.length === 0 ? (
+                ) : recipeData.recipes.length === 0 ? (
                     <div className="text-slate-400 py-3">Maaf, tidak ada data yang bisa ditampilkan!</div>
                 ) : (
                     <div className="flex flex-wrap justify-center items-center sm:pt-6 pt-3 pb-6">
-                        {recipeData.recipes.data.map((recipe) => (
+                        {recipeData.recipes.map((recipe) => (
                             <Recipe recipe={recipe} key={recipe.id} />
                         ))}
                     </div>

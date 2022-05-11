@@ -46,7 +46,7 @@ export const fetchRecipes = () => {
             .get('https://api-food-recipev2.herokuapp.com/recipe')
             .then((res) => {
                 const recipes = res.data;
-                dispatch(fetchRecipesSuccess(recipes));
+                dispatch(fetchRecipesSuccess(recipes.data));
             })
             .catch((err) => {
                 const error = err.message;
@@ -61,7 +61,7 @@ export const fetchSearchRecipes = (query) => {
             .get(`https://api-food-recipev2.herokuapp.com/search?q=${query}`)
             .then((res) => {
                 const recipes = res.data;
-                dispatch(fetchRecipesSuccess(recipes));
+                dispatch(fetchRecipesSuccess(recipes.data));
             })
             .catch((err) => {
                 const error = err.message;
