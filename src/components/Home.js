@@ -34,7 +34,6 @@ const Home = ({ recipeData, fetchRecipes, fetchSearchRecipes, setLoading, search
                 <div className="flex sm:text-xl text-lg text-left px-4 text-gray-600">
                     <h1 className="max-w-4xl">{textRecipe}</h1>
                 </div>
-                {console.log(recipeData.recipes)}
                 {recipeData.loading ? (
                     <Loading />
                 ) : recipeData.error ? (
