@@ -13,7 +13,7 @@ const Recipe = ({ recipe: { id, title, time, images }, selectedRecipe }) => {
             </div>
             <img src={images[0]} alt={id} className="rounded-lg mx-auto" />
             <Link to={`/recipe/${id}`} state={{ image: images[0] }} onClick={() => selectedRecipe()}>
-                <div className="bg-black/60 p-3 w-full text-sm sm:text-base text-white font-bold rounded-lg my-2">
+                <div className="bg-black/60 hover:bg-black/80 p-3 w-full text-sm sm:text-base text-white font-bold rounded-lg my-2">
                     <h1 className="truncate">{title}</h1>
                 </div>
             </Link>

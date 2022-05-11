@@ -26,12 +26,12 @@ const Home = ({ recipeData, fetchRecipes, fetchSearchRecipes, setLoading, search
     return (
         <div className="bg-slate-100 relative">
             <div className="min-h-screen px-2 sm:pt-8 pt-4 pb-12 flex items-center flex-col">
-                <h1 className="text-3xl font-bold sm:mb-6 mb-3">Recipe App</h1>
-                <div className="flex max-w-md w-full bg-color-primary px-4 py-1 sm:py-2 rounded-full mb-6">
-                    <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Cari Resep Masakan" className="flex-1 bg-transparent sm:px-4 outline-none mr-4 text-white font-700" />
+                <h1 className="sm:text-3xl text-2xl font-bold sm:mb-6 mb-3">Indo Recipe App</h1>
+                <div className="flex max-w-md w-full bg-color-primary px-4 py-1 sm:py-2 rounded-lg mb-6">
+                    <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder="Cari Resep Masakan" className="flex-1 bg-transparent text-sm sm:text-base sm:px-4 outline-none mr-4 text-white font-700" />
                     <img onClick={() => setSearchQuery(search)} src={SearchIcon} alt="search" width={35} className="cursor-pointer hover:bg-white p-1 rounded" />
                 </div>
-                <div className="flex text-2xl text-left px-4 text-color-primary">
+                <div className="flex sm:text-xl text-lg text-left px-4 text-gray-600">
                     <h1 className="max-w-4xl">{textRecipe}</h1>
                 </div>
                 {recipeData.loading ? (
