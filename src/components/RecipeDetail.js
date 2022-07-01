@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
-import ClockIcon from '../assets/clock.svg';
 import { connect } from 'react-redux';
 import { fetchRecipeDetail } from '../redux/recipe/recipeActions';
 
@@ -22,7 +21,7 @@ const RecipeDetail = ({ recipeData: { recipe, loading, error }, fetchRecipeDetai
                     <Loading />
                 ) : (
                     <div className="relative">
-                        <Link to="/" className="px-3 py-2 bg-white hover:bg-slate-100 sticky top-2 left-0 rounded-lg text-color-secondary shadow">
+                        <Link to="/" className="px-3 py-2 bg-sky-600 hover:bg-sky-700 sticky top-2 left-0 rounded-xl text-white shadow">
                             Kembali
                         </Link>
                         <div className="w-full flex justify-center">
@@ -31,11 +30,7 @@ const RecipeDetail = ({ recipeData: { recipe, loading, error }, fetchRecipeDetai
                         <div className="py-3">
                             <h1 className="font-bold text-2xl">{recipe.recipeTitle}</h1>
                             <div className="flex items-center">
-                                <p>Durasi : </p>
-                                <div className="text-sm px-2 py-1 ml-1 top-1 left-1 rounded-full bg-color-secondary text-color-secondary mr-1 inline-flex">
-                                    <img src={ClockIcon} alt="clock" width={16} className="mr-1" />
-                                    <span>{recipe.recipeInfo.time}</span>
-                                </div>
+                                <p>Durasi : {recipe.recipeInfo.time}</p>
                             </div>
                         </div>
 

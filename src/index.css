@@ -4,14 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+body {
     font-family: 'Nunito', sans-serif;
-}
-html::-webkit-scrollbar {
-    @apply bg-slate-200 w-2;
-}
-html::-webkit-scrollbar-thumb {
-    @apply bg-slate-400 rounded-full;
 }
 .bg-color-primary {
     @apply bg-[#101318];
